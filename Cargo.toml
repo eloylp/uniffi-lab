@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+    "basic",
+    "uniffi-bindgen"
+]
+
+[workspace.dependencies]
+uniffi = {version = "0.23.0"}

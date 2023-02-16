@@ -1,0 +1,17 @@
+[package]
+name = "basic"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["lib", "cdylib"]
+name = "basic"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+uniffi = {workspace=true}
+
+[build-dependencies]
+uniffi = {workspace = true, features = [ "build" ] }
+
