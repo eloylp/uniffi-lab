@@ -1,3 +1,9 @@
 namespace basic {
+    [Throws=ArithmeticError]
     u32 add (u32 a, u32 b);
+};
+
+[Error]
+interface ArithmeticError {    
+   IntegerOverflow(u32 a, u32 b);
 };
