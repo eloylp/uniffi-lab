@@ -8,11 +8,11 @@ An [example](./basic) with basic, primitive types. The target is to build a `gen
 ```mermaid
 graph LR;
 caller.py-->basic.py;
-basic.py-->libuniffi_basic.so;
+basic.py-->libbasic.so;
 ```
 - `caller.py` file would represent the client code of the FFI. An application.
 - `basic.py` the python bindings to our rust code.
-- `libuniffi_basic.so` The shared library, which contains all the low level FFI `extern` blocks, and the Rust logic itself.
+- `libbasic.so` The shared library, which contains all the low level FFI `extern` blocks, and the Rust logic itself.
 
 ```bash
 $ cd basic/generated
@@ -53,8 +53,7 @@ Next, generate our shared library and move it to the `generated` folder:
 
 ```bash
 $ cargo build --release
-# Note we changed the name here to the ones the bindings expect.
-$ mv ../target/release/libbasic.so generated/libuniffi_basic.so
+$ mv ../target/release/libbasic.so generated
 ```
 
 Execute the result by:
