@@ -3,7 +3,7 @@ A repo for trying the [Mozilla UniFFI library](https://github.com/mozilla/uniffi
 encouraged.
 ## Basic
 
-An [example](./basic) with basic, primitive types. The target is to build a `generated` folder, which should contain the resultant execution chain:
+An [example](./basic) with basic, primitive types and basic error handling. The target is to build a `generated` folder, which should contain the resultant execution chain:
 
 ```mermaid
 graph LR;
@@ -63,3 +63,7 @@ $ cd basic/generated
 $ python caller.py
 2 + 4 = 6
 ```
+
+## Custom
+
+An [example](./custom/) with internal state. 
