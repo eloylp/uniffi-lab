@@ -1,0 +1,16 @@
+
+
+namespace custom {
+};
+
+
+dictionary Player {
+    string name;
+    u8 age;
+};
+
+interface PlayerRegistry {
+    constructor();
+    void add(Player player);
+    sequence<Player> players();
+};
