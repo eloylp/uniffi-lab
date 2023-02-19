@@ -12,19 +12,38 @@ pub struct PlayerRegistry {
 }
 
 impl PlayerRegistry {
-    fn new() -> PlayerRegistry {
+    pub fn new() -> PlayerRegistry {
         PlayerRegistry {
             registry: RwLock::new(Vec::new()),
         }
     }
 
-    fn add(&self, player: Player) {
+    pub fn add(&self, player: Player) {
         self.registry.write().unwrap().push(player);
     }
 
-    fn players(&self) -> Vec<Player> {
+    pub fn players(&self) -> Vec<Player> {
         self.registry.read().unwrap().clone()
     }
+
+    pub fn first(&self) -> Option<Player> {
+        if let Some(player) = self.registry.read().unwrap().first() {
+            return Some(player.clone());
+        }
+        None
+    }
+}
+
+pub fn winners(registry_a: &PlayerRegistry, registry_b: &PlayerRegistry) -> Vec<Player> {
+    let mut winners = Vec::new();
+
+    if let Some(player) = registry_a.first() {
+        winners.push(player)
+    }
+    if let Some(player) = registry_b.first() {
+        winners.push(player)
+    }
+    winners
 }
 
 uniffi::include_scaffolding!("custom");

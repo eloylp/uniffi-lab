@@ -1,8 +1,8 @@
 
 
 namespace custom {
+    sequence<Player> winners([ByRef] PlayerRegistry registry_a, [ByRef] PlayerRegistry registry_b);
 };
-
 
 dictionary Player {
     string name;
@@ -13,4 +13,5 @@ interface PlayerRegistry {
     constructor();
     void add(Player player);
     sequence<Player> players();
+    Player? first();
 };

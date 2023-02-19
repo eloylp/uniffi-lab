@@ -66,4 +66,8 @@ $ python caller.py
 
 ## Custom
 
-An [example](./custom/) with internal state.
+An [example](./custom/) managing:
+
+* Internal state.
+* Passing references.
+* Custom types.
