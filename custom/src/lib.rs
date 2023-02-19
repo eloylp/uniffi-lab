@@ -1,4 +1,4 @@
-use std::sync::RwLock;
+use std::sync::{Arc, RwLock};
 
 #[derive(Clone, Debug)]
 pub struct Player {
@@ -31,6 +31,27 @@ impl PlayerRegistry {
             return Some(player.clone());
         }
         None
+    }
+
+    pub fn merge(&self, registry: &PlayerRegistry) {
+        let mut reg = self.registry.write().unwrap();
+        registry.players().iter().for_each(|player| {
+            reg.push(player.clone());
+        });
+    }
+}
+
+pub struct Race {
+    player_registry: Arc<PlayerRegistry>,
+}
+
+impl Race {
+    pub fn new(player_registry: Arc<PlayerRegistry>) -> Race {
+        Race { player_registry }
+    }
+
+    pub fn player_registry(&self) -> Arc<PlayerRegistry> {
+        Arc::clone(&self.player_registry)
     }
 }
 

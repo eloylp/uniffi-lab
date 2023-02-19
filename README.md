@@ -68,6 +68,7 @@ $ python caller.py
 
 An [example](./custom/) managing:
 
-* Internal state.
-* Passing references.
 * Custom types.
+* Internal state.
+* Borrowing by using `[ByRef]` .
+* Passing shared ownership by using `Arc`.
